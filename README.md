@@ -1,46 +1,193 @@
-# System-Level Simulation of Priority-Based Resource Scheduling
+<div align="center">
 
-## Project Overview
-This project implements a system-level, time-driven simulation in which multiple independent agents compete for a single shared resource. The objective is to study scheduling behavior, system states, and feasibility under constrained availability conditions. The focus is on correct system modeling and decision logic rather than UI or domain-specific physical accuracy.
+# 🚀 System Resource Scheduling Simulation
 
-## System Model
-The system consists of multiple agents, a single shared resource, a scheduler, and a discrete time progression mechanism. Agents become eligible for service based on a dynamic availability condition. When the resource is idle, the scheduler selects one eligible agent for execution.
+### *A Comprehensive Priority-Based Resource Scheduling Simulator*
 
-## Scheduling Policy
-The system uses **non-preemptive priority-based scheduling**. Scheduling decisions occur only when the resource is idle. Once an agent is selected, it retains the resource for a fixed execution window and runs to completion without interruption.
+[![GitHub Stars](https://img.shields.io/github/stars/ShreyanshMishra1202/System-Resource-Scheduling-Simulation?style=for-the-badge&logo=github)](https://github.com/ShreyanshMishra1202/System-Resource-Scheduling-Simulation/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/ShreyanshMishra1202/System-Resource-Scheduling-Simulation?style=for-the-badge&logo=github)](https://github.com/ShreyanshMishra1202/System-Resource-Scheduling-Simulation/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/ShreyanshMishra1202/System-Resource-Scheduling-Simulation?style=for-the-badge&logo=github)](https://github.com/ShreyanshMishra1202/System-Resource-Scheduling-Simulation/issues)
+[![License](https://img.shields.io/github/license/ShreyanshMishra1202/System-Resource-Scheduling-Simulation?style=for-the-badge)](LICENSE)
 
-## System States
-**Idle**
-- The resource is free
-- No agent is executing
-- Scheduling decisions are allowed
+---
 
-**Busy**
-- The resource is occupied
-- Exactly one agent is executing
-- No re-selection occurs
+</div>
 
-## System Assumptions
-- Time progresses in discrete simulation steps  
-- Only one agent can use the resource at any time  
-- Execution duration is fixed and deterministic  
-- Agent availability is abstracted using logical conditions  
-- Scheduling is non-preemptive  
+## 📋 Overview
 
-## System Invariants
-- At most one agent executes at any time  
-- Scheduling occurs only in the idle state  
-- Execution always runs to completion  
-- System state remains consistent across time steps  
+**System Resource Scheduling Simulation** is a sophisticated, time-driven simulation framework designed to model and analyze how multiple independent agents compete for shared resources. This project provides deep insights into scheduling behavior, system state transitions, and resource feasibility under constrained conditions.
 
-## Design Focus (Phase-1)
-Phase-1 focuses on correctness of system behavior, clear separation of decision and execution phases, and consistent state management. Performance analysis and fairness improvements are handled in later phases.
+🎯 **Key Focus**: Accurate system modeling and intelligent decision logic, prioritizing correctness over UI aesthetics or domain-specific physical accuracy.
 
-## Known Limitations
-- Starvation is possible under static priority scheduling  
-- The model is intended for feasibility and behavior analysis, not physical accuracy  
+---
 
-## Future Extensions
-- Metrics collection and resource utilization analysis  
-- Starvation mitigation using aging  
-- Comparative evaluation of scheduling strategies  
+## 🏗️ Architecture & System Model
+
+The simulation architecture comprises four core components working in harmony:
+
+| Component | Description |
+|-----------|-------------|
+| 🤖 **Multiple Agents** | Independent entities competing for resources |
+| 💎 **Shared Resource** | Single critical resource accessed by agents |
+| ⚙️ **Intelligent Scheduler** | Decision-making engine for resource allocation |
+| ⏱️ **Time Progression** | Discrete time-step simulation mechanism |
+
+**Workflow**: Agents become eligible for service based on dynamic availability conditions. When the resource is idle, the scheduler intelligently selects one eligible agent for execution.
+
+---
+
+## 🎯 Scheduling Policy
+
+Our system implements **Non-Preemptive Priority-Based Scheduling** for optimal resource allocation:
+
+```
+┌─────────────────────────────────────────────────────┐
+│  Scheduling occurs ONLY when resource is idle       │
+│  Selected agent runs to completion (no interruption)│
+│  Fixed execution window ensures predictability      │
+└─────────────────────────────────────────────────────┘
+```
+
+✨ **Key Characteristics**:
+- 🔒 Non-preemptive execution
+- 📊 Priority-based selection
+- ⏰ Fixed-time execution windows
+- ✅ Run-to-completion guarantee
+
+---
+
+## 🔄 System States
+
+The system operates in two distinct states with clear transitions:
+
+### 🟢 Idle State
+```
+┌─────────────────────┐
+│ ✓ Resource is free  │
+│ ✓ No agent running  │
+│ ✓ Scheduling active │
+└─────────────────────┘
+```
+
+### 🔴 Busy State
+```
+┌──────────────────────┐
+│ ✓ Resource occupied  │
+│ ✓ One agent running  │
+│ ✓ No re-selection    │
+└──────────────────────┘
+```
+
+---
+
+## 📐 System Assumptions
+
+Our simulation is built on the following foundational principles:
+
+| Assumption | Description |
+|------------|-------------|
+| ⏱️ **Discrete Time** | Time progresses in discrete simulation steps |
+| 🔐 **Exclusive Access** | Only one agent can use the resource at any time |
+| 📏 **Fixed Duration** | Execution duration is fixed and deterministic |
+| 🎲 **Logical Availability** | Agent availability is abstracted using logical conditions |
+| 🚫 **No Preemption** | Scheduling is strictly non-preemptive |  
+
+---
+
+## 🛡️ System Invariants
+
+These invariants guarantee system correctness and consistency:
+
+```
+✓ At most one agent executes at any time
+✓ Scheduling occurs only in the idle state
+✓ Execution always runs to completion
+✓ System state remains consistent across time steps
+```  
+
+---
+
+## 🎨 Design Philosophy (Phase-1)
+
+<div align="center">
+
+### *Correctness First, Optimization Later*
+
+</div>
+
+**Phase-1 Priorities**:
+- ✅ **Correctness**: Accurate system behavior and state management
+- 🔍 **Clear Separation**: Distinct decision and execution phases
+- 🔄 **Consistency**: Robust state management across time steps
+- 📊 **Foundation**: Solid base for future enhancements
+
+> **Note**: Performance analysis and fairness improvements are planned for subsequent phases.
+
+---
+
+## ⚠️ Known Limitations
+
+| Limitation | Description | Status |
+|------------|-------------|---------|
+| 🔄 **Starvation Risk** | Static priority scheduling may cause starvation | Future mitigation planned |
+| 🎯 **Behavioral Focus** | Model optimized for behavior analysis, not physical accuracy | By design |  
+
+---
+
+## 🚀 Future Extensions
+
+Exciting features planned for upcoming releases:
+
+### Phase 2 & Beyond
+```
+📊 Metrics Collection
+   └─ Resource utilization analysis
+   └─ Performance benchmarking
+   └─ System efficiency tracking
+
+🔧 Starvation Mitigation
+   └─ Age-based priority adjustment
+   └─ Fairness algorithms
+   └─ Dynamic priority modification
+
+📈 Comparative Analysis
+   └─ Multiple scheduling strategies
+   └─ Performance comparisons
+   └─ Trade-off analysis
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Whether it's bug reports, feature requests, or code contributions, we appreciate your help in making this project better.
+
+1. 🍴 Fork the repository
+2. 🔨 Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
+5. 🎉 Open a Pull Request
+
+---
+
+## 📜 License
+
+This project is open source and available under the appropriate license. See the `LICENSE` file for more details.
+
+---
+
+## 👨‍💻 Author
+
+**Shreyansh Mishra**
+
+- GitHub: [@ShreyanshMishra1202](https://github.com/ShreyanshMishra1202)
+
+---
+
+<div align="center">
+
+### ⭐ Star this repository if you find it useful!
+
+**Made with ❤️ and ☕**
+
+</div>  
